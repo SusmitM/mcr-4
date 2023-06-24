@@ -59,14 +59,15 @@ export const Card = ({postData}) => {
         display: "flex",
         flexDirection: "row",
         borderRadius: 15,
-        maxWidth: 450,
+        maxWidth: 475,
         minHeight: 250,
-        marginBottom:"20px"
+        marginBottom:"20px",
+        
         
       }}
-      elevation={10}
+      elevation={5}
     >
-      <Box flex={1}>
+      <Box flex={1} sx={{padding:"5px"}}>
         <List>
           <ListItem>
             <ListItemIcon onClick={upvote}>
@@ -74,7 +75,7 @@ export const Card = ({postData}) => {
             </ListItemIcon>
           </ListItem>
           <ListItem>
-            <ListItemText primary={votes} />
+            <ListItemText sx={{color:votes>0 ?"#5348c6":"red" }} primary={votes} />
           </ListItem>
           <ListItem>
             <ListItemIcon onClick={downvote}>
@@ -83,10 +84,10 @@ export const Card = ({postData}) => {
           </ListItem>
         </List>
       </Box>
-      <Box flex={4}>
+      <Box flex={4} sx={{padding:"5px",alignItems:"center"}}>
         <Box sx={{ display: "flex", marginTop: "11px", gap: "13px" }}>
-          <Avatar sx={{ height: "20px", width: "20px" }}>{name}</Avatar>
-          <Typography sx={{fontSize:"0.6rem"}}>Posted by @{username} 1m</Typography>
+          <Avatar src={picUrl} sx={{ height: "20px", width: "20px" }}/>
+          <Typography sx={{fontSize:"0.6rem"}}>Posted by <span style={{color:"#5348c6" }}>@{username}</span> 1m</Typography>
         </Box>
         <Box>
           <Typography variant="h6" gutterBottom>
@@ -101,7 +102,7 @@ export const Card = ({postData}) => {
               {postDescription}
             </Typography>
           </CardContent>
-          <Divider/>
+          <Divider sx={{marginTop:"15px"}}/>
          <Box sx={{display:"flex",
         justifyContent:"space-between",marginTop:"5px"}}>
              <Box onClick={()=> navigate(`/singlePost/${postId}`)}>

@@ -11,7 +11,9 @@ import HomeIcon from "@mui/icons-material/Home";
 import RocketLaunchIcon from "@mui/icons-material/RocketLaunch";
 import BookmarkIcon from "@mui/icons-material/Bookmark";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+import { useDataContext } from "../Context/DataContext";
 export const Sidebar = () => {
+  const {data}=useDataContext();
   return (
     <Box
       flex={2}
@@ -47,10 +49,10 @@ export const Sidebar = () => {
           </ListItem>
         </List>
         <Box  mt={30} sx={{display:"flex",flexDirection:"row"}}>
-        <Box><Avatar>T</Avatar></Box>
+        <Box><Avatar src={data.picUrl}/></Box>
         <Box ml={1} sx={{display:"flex",flexDirection:"column"}}>
-          <Typography>Tanay Pratap</Typography>
-          <Typography>@TanayPratap</Typography>
+          <Typography>{data.name}</Typography>
+          <Typography sx={{color:"#5348c6" }}>@{data.username}</Typography>
         </Box>
       </Box>
       </Box>
