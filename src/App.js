@@ -1,10 +1,12 @@
 
+import { AllRoutes } from './All-Routes/AllRoutes';
 import './App.css';
+
 
 function App() {
   return (
     <div className="App">
-      <h1>MCR-4</h1>
+     <AllRoutes/>
     </div>
   );
 }
